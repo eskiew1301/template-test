@@ -1,16 +1,17 @@
 const imageContainer = document.getElementById("image-container");
 const loader = document.getElementById("loader");
+
 let ready = false;
 let imagesLoaded = 0;
 totalImages = 0;
 let photosArray = [];
 
 // API
-const count = 10;
+const count = 5;
 const type = "photo";
 const term = "nature+birds";
 const apiKey = "46473251-ca4dc2963449a96f956207e80";
-const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${term}&image_type=${type}&per_page=30`;
+const apiUrl = `https://pixabay.com/api/?key=${apiKey}&q=${term}&image_type=${type}&per_page=${count}`;
 
 // check if all images were loaded
 function imageLoaded() {
@@ -18,6 +19,7 @@ function imageLoaded() {
   if (imagesLoaded === totalImages) {
     ready = true;
     loader.hidden = true;
+    count = 30;
   }
 }
 
